@@ -8,6 +8,7 @@ const mainContainer= document.querySelector('.card-container');
 let overlay= document.querySelector('.overlay-parent');
 const modal=document.querySelector('.modal-content');
 const modalClose= document.querySelector(".modal-close");
+const arrow = document.querySelectorAll(".arrow");
 
 // ------------------------------------------
 //  FETCH FUNCTION
@@ -81,6 +82,17 @@ mainContainer.addEventListener('click', e => {
     }
     });
 
+arrow.forEach(function (i) {
+    i.addEventListener('click', function() {
+       
+        if (i.target !== arrow) {
+            const card = i.target.closest(".card");
+        const index = card.getAttribute('data-index');
+        displayModal(index);
+        }
+    });
+  });
+
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
     });
@@ -107,3 +119,22 @@ input.addEventListener('keyup', e => {
     });
 
 });
+
+//swiper 
+
+const swiper = new Swiper('.swiper', {
+    // Optional parameters
+    direction: 'vertical',
+    loop: true,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  

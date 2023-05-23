@@ -21,7 +21,7 @@ form.search{
 
 input {
     width: 90%;
-    height: 40px;
+    height: 50px;
     border-radius: 5px;
     border: solid 1px  rgb(145, 139, 139);
     box-shadow: 1px 2px 3px lightgrey;
@@ -100,6 +100,21 @@ div.overlay-parent {
     bottom: 0;
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+.left-arrow, .right-arrow {
+    font-size: 40px;
+    color: rgb(232, 228, 228);
+    position: absolute;
+    cursor: pointer;
+}
+.left-arrow {
+    transform: translateY(215px) translateX(-85px);
+}
+.right-arrow {
+    transform: translateY(215px) translateX(85px);
+}
+.left-arrow:hover, .right-arrow:hover {
+    color: rgb(205, 203, 203);
 }
 .overlay {
     position: absolute;
@@ -210,6 +225,14 @@ Media Queries
     main {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
+    }
+    .left-arrow {
+        font-size: 70px;
+        transform: translateY(230px) translateX(-150px);
+    }
+    .right-arrow {
+        font-size: 70px;
+        transform: translateY(230px) translateX(150px);
     }
     
 }
