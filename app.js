@@ -84,3 +84,26 @@ mainContainer.addEventListener('click', e => {
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
     });
+   
+// ------------------------------------------
+//  The JS Search
+// ------------------------------------------
+
+//Create an input variable
+
+const input = document.getElementById('search');
+
+//listen for search event
+
+input.addEventListener('keyup', e => {
+    let currentValue= e.target.value.toLowerCase();
+    let captions= document.querySelectorAll("h2");
+    captions.forEach(caption => {
+        if (caption.textContent.toLowerCase().includes(currentValue)) {
+            caption.parentNode.parentNode.style.display = 'flex';
+        }else {
+            caption.parentNode.parentNode.style.display = 'none';
+        }
+    });
+
+});
