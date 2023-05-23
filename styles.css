@@ -5,16 +5,44 @@ body {
     font-family: 'Ubuntu Condensed', sans-serif, Arial, Helvetica;
     background-color: rgb(246, 249, 250);
     padding: 20px 20px 30px 20px;
+    padding: 0px;
     position: relative;
 }
 
 /* =========================
 Main Elements 
 ===========================*/
+form.search{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
 
+input {
+    width: 90%;
+    height: 40px;
+    border-radius: 5px;
+    border: solid 1px  rgb(145, 139, 139);
+    box-shadow: 1px 2px 3px lightgrey;
+    transform-origin: 0 0;
+    transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
+}
+
+input::placeholder {
+   color: rgb(104, 123, 104);
+   font-size: 15px;
+}
+
+input:hover {
+    box-shadow: 2px 3px 4px rgb(175, 170, 170);
+    transform: scale(1.2);
+}
 h1 {
-    font-size: 15px;
-    color:rgb(85, 82, 82)
+    font-size: 18px;
+    color:rgb(85, 82, 82);
+    margin-top: 0;
+    padding-left: 5px;
 }
 main {
     display: grid;
@@ -170,6 +198,12 @@ Media Queries
     body {
         padding: 20px 35px 30px 35px;
     }
+    form.search {
+        justify-content: right;
+    }
+    input{
+        width: 35%;
+    }
     h1 {
         font-size: 2em;
     }
@@ -181,6 +215,15 @@ Media Queries
 }
 
 @media screen and (min-width: 1024px) {
+    body {
+        padding: 0px;
+    }
+    form.search {
+        padding-right: 30px;
+    }
+    h1 {
+        padding-left: 15px;
+    }
     .overlay{
         width: 35%;
         top: 12%;
@@ -189,6 +232,8 @@ Media Queries
     main {
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows:  150px 150px 150px 150px;
+        padding-right: 20px;
+        padding-left: 10px;
     }
     .card img {
         width: 150px;
