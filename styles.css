@@ -87,6 +87,12 @@ div.overlay-parent {
     border: 1.5px solid rgb(221, 220, 220);
     padding-bottom: 25px;
 }
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
 .modal-close {
     padding-left: 88%;
     padding-top: 10px;
@@ -101,7 +107,7 @@ div.overlay-parent {
    color:rgb(165, 161, 161);
    cursor: pointer;
 }
-.overlay .avatar {
+.avatar {
     width: 150px;
     border-radius: 50%;
     padding: 20px;
