@@ -36,7 +36,7 @@ input::placeholder {
 
 input:hover {
     box-shadow: 2px 3px 4px rgb(175, 170, 170);
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 h1 {
     font-size: 18px;
@@ -126,9 +126,15 @@ div.overlay-parent {
     top: 10%;
     left: 20%;
     background-color: #fff;
-    border-radius: 7px;
-    border: 1.5px solid rgb(221, 220, 220);
+    border-radius: 7px 40px;
+    border: 2px solid rgb(165 173 238);
     padding-bottom: 25px;
+}
+.modal-color1{
+    background-color: rgb(51, 73, 237);
+}
+.modal-color2 {
+
 }
 .modal-content {
     display: flex;
@@ -137,8 +143,8 @@ div.overlay-parent {
     align-items: center;
 }
 .modal-close {
-    padding-left: 88%;
-    padding-top: 10px;
+    padding-left: 78%;
+    margin-top: 10px;
     font-size: 18px;
     color:rgb(85, 82, 82);
     transition: all .5s cubic-bezier(.62,-0.19,.25,1.3);
@@ -225,6 +231,9 @@ Media Queries
     main {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
+    }
+    .modal-close {
+        padding-left: 88%;
     }
     .left-arrow {
         font-size: 70px;

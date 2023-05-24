@@ -70,6 +70,7 @@ function displayModal(index) {
             <p>${street.number} ${street.name}, ${state} ${postcode}</p>
             <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
+        
     `;
     overlay.classList.remove("hidden");
     modal.innerHTML = modalHTML;
@@ -92,26 +93,24 @@ modalClose.addEventListener('click', () => {
 // ------------------------------------------
 //  Previous and Forward arrows
 // ------------------------------------------
-
-// !!!The error occurs with the program not recognizing the data-index and the .getAttribute. I've tried several different things.
    
 forwardArrow.addEventListener('click', () => {
-    //    let index= parseInt(modal.querySelector('.overlay-text').getAttribute('data-index'));
-    let overlayText = document.querySelector('.overlayText');
-    let index = overlayText.getAttribute('data-index');
+    let overlayText = document.querySelector('.overlay-txt');
+    let index = parseInt(overlayText.getAttribute('data-index'));
        if(index !== employees.length - 1) {
         index += 1;
         displayModal(index);
        }
     });
     
-    previousArrow.addEventListener('click', () => {
-        let index= parseInt(modal.querySelector('.text-container').data-index);
+previousArrow.addEventListener('click', () => {
+    let overlayText = document.querySelector('.overlay-txt');
+    let index = parseInt(overlayText.getAttribute('data-index'));
         if(index !==0) {
-         index -= 1;
-         displayModal(index);
+        index -= 1;
+        displayModal(index);
         }
-    });
+});
 
 // ------------------------------------------
 //  The JS Search
