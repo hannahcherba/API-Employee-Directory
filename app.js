@@ -4,15 +4,18 @@
 
 let employees = [];
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
-const mainContainer= document.querySelector('.card-container');
+const mainContainer= document.querySelector('.card-container'); //wrapper
 let overlay= document.querySelector('.overlay-parent');
 const modal=document.querySelector('.modal-content');
 const modalClose= document.querySelector(".modal-close");
 const arrow = document.querySelectorAll(".arrow");
+const forwardArrow = document.querySelector(".right-arrow");
+const previousArrow = document.querySelector(".left-arrow");
 
 // ------------------------------------------
 //  FETCH FUNCTION
 // ------------------------------------------
+
 fetch(urlAPI)
 .then(res => res.json())
 .then(res => res.results)
@@ -58,7 +61,7 @@ function displayModal(index) {
     let date = new Date(dob.date);
     const modalHTML = `
         <img class="avatar" src="${picture.large}" alt="${name.first}, an employee of the Awesome Startup company">
-        <div class="overlay-txt">
+        <div class="overlay-txt" data-index="${index}">
             <h2>${name.first} ${name.last}</h2>
             <p>${email}</p>
             <p>${city}</p>
@@ -82,21 +85,34 @@ mainContainer.addEventListener('click', e => {
     }
     });
 
-arrow.forEach(function (i) {
-    i.addEventListener('click', function() {
-       
-        if (i.target !== arrow) {
-            const card = i.target.closest(".card");
-        const index = card.getAttribute('data-index');
-        displayModal(index);
-        }
-    });
-  });
-
 modalClose.addEventListener('click', () => {
     overlay.classList.add("hidden");
     });
+
+// ------------------------------------------
+//  Previous and Forward arrows
+// ------------------------------------------
+
+// !!!The error occurs with the program not recognizing the data-index and the .getAttribute. I've tried several different things.
    
+forwardArrow.addEventListener('click', () => {
+    //    let index= parseInt(modal.querySelector('.overlay-text').getAttribute('data-index'));
+    let overlayText = document.querySelector('.overlayText');
+    let index = overlayText.getAttribute('data-index');
+       if(index !== employees.length - 1) {
+        index += 1;
+        displayModal(index);
+       }
+    });
+    
+    previousArrow.addEventListener('click', () => {
+        let index= parseInt(modal.querySelector('.text-container').data-index);
+        if(index !==0) {
+         index -= 1;
+         displayModal(index);
+        }
+    });
+
 // ------------------------------------------
 //  The JS Search
 // ------------------------------------------
@@ -119,22 +135,3 @@ input.addEventListener('keyup', e => {
     });
 
 });
-
-//swiper 
-
-const swiper = new Swiper('.swiper', {
-    // Optional parameters
-    direction: 'vertical',
-    loop: true,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  
