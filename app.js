@@ -4,11 +4,10 @@
 
 let employees = [];
 const urlAPI = `https://randomuser.me/api/?results=12&inc=name,picture,email,location,phone,dob&noinfo&nat=US`;
-const mainContainer= document.querySelector('.card-container'); //wrapper
+const mainContainer= document.querySelector('.card-container'); 
 let overlay= document.querySelector('.overlay-parent');
 const modal=document.querySelector('.modal-content');
 const modalClose= document.querySelector(".modal-close");
-const arrow = document.querySelectorAll(".arrow");
 const forwardArrow = document.querySelector(".right-arrow");
 const previousArrow = document.querySelector(".left-arrow");
 
@@ -19,7 +18,6 @@ const previousArrow = document.querySelector(".left-arrow");
 fetch(urlAPI)
 .then(res => res.json())
 .then(res => res.results)
-// .then(res => console.log(res.results))
 .then(displayEmployees)
 .catch(err => console.log(err))
 
@@ -54,8 +52,6 @@ function displayEmployees(employeeData) {
 
 function displayModal(index) {
     // use object destructuring make our template literal cleaner
-    // let { name, dob, phone, email, location: { city, street, state, postcode
-    // }, picture } = employees[index];
     let { name, dob, phone, email, location: { city, street, state, postcode
     }, picture } = employees[index];
     let date = new Date(dob.date);
@@ -72,9 +68,9 @@ function displayModal(index) {
         </div>
         
     `;
-    overlay.classList.remove("hidden");
-    modal.innerHTML = modalHTML;
-    };
+overlay.classList.remove("hidden");
+modal.innerHTML = modalHTML;
+};
    
 mainContainer.addEventListener('click', e => {
     // make sure the click is not on the gridContainer itself

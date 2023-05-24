@@ -5,7 +5,6 @@ body {
     font-family: 'Ubuntu Condensed', sans-serif, Arial, Helvetica;
     background-color: rgb(246, 249, 250);
     padding: 20px 20px 30px 20px;
-    padding: 0px;
     position: relative;
 }
 
@@ -18,7 +17,6 @@ form.search{
     padding-top: 10px;
     padding-bottom: 15px;
 }
-
 input {
     width: 90%;
     height: 50px;
@@ -28,21 +26,23 @@ input {
     transform-origin: 0 0;
     transition: all 0.75s cubic-bezier(0.68, -0.55, 0.265, 1.55 ); 
 }
-
 input::placeholder {
-    color:rgb(150, 145, 145);
-   font-size: 15px;
+    font-size: 15px;
 }
-
+input::placeholder, p {
+    color:rgb(165, 161, 161);
+}
 input:hover {
     box-shadow: 2px 3px 4px rgb(175, 170, 170);
     transform: scale(1.05);
 }
 h1 {
     font-size: 18px;
-    color:rgb(85, 82, 82);
     margin-top: 0;
     padding-left: 5px;
+}
+h1, h2 {
+    color:rgb(85, 82, 82);
 }
 main {
     display: grid;
@@ -52,8 +52,10 @@ main {
 }
 .card img {
     width: 40%;
-    border-radius: 50%;
     padding: 20px;
+}
+.card img, .avatar {
+    border-radius: 50%;
 }
 .card {
     display: flex;
@@ -74,11 +76,9 @@ main {
 }
 p {
     font-size: 12px;
-    color:rgb(165, 161, 161);
 }
 h2 {
     font-size: 16px;
-    color:rgb(85, 82, 82);
 }
 .card-txt p, .card-txt h2 {
     margin: 2px;
@@ -119,9 +119,6 @@ div.overlay-parent {
 .overlay {
     position: absolute;
     z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 60%;
     top: 10%;
     left: 20%;
@@ -130,17 +127,13 @@ div.overlay-parent {
     border: 2px solid rgb(165 173 238);
     padding-bottom: 25px;
 }
-.modal-color1{
-    background-color: rgb(51, 73, 237);
-}
-.modal-color2 {
-
-}
-.modal-content {
+.overlay, .modal-content {
     display: flex;
     flex-direction: column;
-    text-align: center;
     align-items: center;
+}
+.modal-content {
+    text-align: center;
 }
 .modal-close {
     padding-left: 78%;
@@ -158,7 +151,6 @@ div.overlay-parent {
 }
 .avatar {
     width: 150px;
-    border-radius: 50%;
     padding: 20px;
 }
 .overlay-txt {
@@ -236,12 +228,13 @@ Media Queries
         padding-left: 88%;
     }
     .left-arrow {
-        font-size: 70px;
         transform: translateY(230px) translateX(-150px);
     }
     .right-arrow {
-        font-size: 70px;
         transform: translateY(230px) translateX(150px);
+    }
+    .left-arrow, .right-arrow {
+        font-size: 70px;
     }
     
 }
