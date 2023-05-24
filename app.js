@@ -64,14 +64,15 @@ function displayModal(index) {
             <div></div>
             <p>${phone}</p>
             <p>${street.number} ${street.name}, ${state} ${postcode}</p>
-            <p>Birthday: ${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
+            <p>Birthday: ${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}</p>
         </div>
         
     `;
-overlay.classList.remove("hidden");
-modal.innerHTML = modalHTML;
+    overlay.classList.remove("hidden");
+    modal.innerHTML = modalHTML;
+    modal.style.display= 'flex';
 };
-   
+
 mainContainer.addEventListener('click', e => {
     // make sure the click is not on the gridContainer itself
     if (e.target !== mainContainer) {
@@ -128,5 +129,5 @@ input.addEventListener('keyup', e => {
             caption.parentNode.parentNode.style.display = 'none';
         }
     });
-
+    
 });
